@@ -1,0 +1,642 @@
+# Instincts generated from https://github.com/NGshiyu/hermes-agent
+# Generated: 2026-06-11T10:10:20.826Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: hermes-agent-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/NGshiyu/hermes-agent
+---
+
+# Hermes Agent Commit Length
+
+## Action
+
+Write moderate-length commit messages (~68 characters)
+
+## Evidence
+
+- Average commit message length: 68 chars
+- Based on 24 commits
+
+---
+id: hermes-agent-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/NGshiyu/hermes-agent
+---
+
+# Hermes Agent Naming Files
+
+## Action
+
+Use snake_case naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: snake_case
+
+---
+id: hermes-agent-import-alias
+trigger: "when importing modules"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/NGshiyu/hermes-agent
+---
+
+# Hermes Agent Import Alias
+
+## Action
+
+Use path aliases (@/, ~/) instead of relative imports
+
+## Evidence
+
+- Import analysis shows alias pattern
+- Example: import { x } from '@/lib/x'
+
+---
+id: hermes-agent-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/NGshiyu/hermes-agent
+---
+
+# Hermes Agent Export Style
+
+## Action
+
+Prefer named exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: named
+
+---
+id: hermes-agent-arch-type-based
+trigger: "when adding new code"
+confidence: 0.8
+domain: architecture
+source: repo-analysis
+source_repo: https://github.com/NGshiyu/hermes-agent
+---
+
+# Hermes Agent Arch Type Based
+
+## Action
+
+Place code in the appropriate type folder (components/, services/, utils/, etc.)
+
+## Evidence
+
+- Type-based module organization detected
+- Folders: 
+
+---
+id: hermes-agent-test-separate
+trigger: "when writing tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/NGshiyu/hermes-agent
+---
+
+# Hermes Agent Test Separate
+
+## Action
+
+Place tests in the tests/ or __tests__/ directory, mirroring src structure
+
+## Evidence
+
+- Separate test directory pattern detected
+- Tests live in dedicated test folders
+
+---
+id: hermes-agent-test-framework
+trigger: "when writing tests"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/NGshiyu/hermes-agent
+---
+
+# Hermes Agent Test Framework
+
+## Action
+
+Use vitest as the test framework
+
+## Evidence
+
+- Test framework detected: vitest
+- File pattern: *.test.ts
+
+---
+id: hermes-agent-test-naming
+trigger: "when creating a test file"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/NGshiyu/hermes-agent
+---
+
+# Hermes Agent Test Naming
+
+## Action
+
+Name test files using the pattern: *.test.ts
+
+## Evidence
+
+- File pattern: *.test.ts
+- Consistent across test files
+
+---
+id: hermes-agent-test-mocking
+trigger: "when mocking dependencies in tests"
+confidence: 0.75
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/NGshiyu/hermes-agent
+---
+
+# Hermes Agent Test Mocking
+
+## Action
+
+Use vi.mock for mocking
+
+## Evidence
+
+- Mocking pattern detected: vi.mock
+- Consistent across test files
+
+---
+id: hermes-agent-workflow-feature-development
+trigger: "when implementing a new feature"
+confidence: 0.8
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/NGshiyu/hermes-agent
+---
+
+# Hermes Agent Workflow Feature Development
+
+## Action
+
+Follow the feature-development workflow:
+1. Add feature implementation
+2. Add tests for feature
+3. Update documentation
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~6x per month
+- Files: apps/desktop/src/store/*, **/*.test.*
+
+---
+id: hermes-agent-workflow-bugfix-with-regression-test
+trigger: "when doing bugfix with regression test"
+confidence: 0.7
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/NGshiyu/hermes-agent
+---
+
+# Hermes Agent Workflow Bugfix With Regression Test
+
+## Action
+
+Follow the bugfix-with-regression-test workflow:
+1. Identify and fix the bug in the main code file(s).
+2. Add or update a test file to cover the fixed behavior.
+3. Commit both the code and the test together.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~4x per month
+- Files: hermes_cli/backup.py, tests/hermes_cli/test_backup.py, cli.py
+
+---
+id: hermes-agent-workflow-feature-addition-with-api-and-ui-and-tests
+trigger: "when doing feature addition with api and ui and tests"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/NGshiyu/hermes-agent
+---
+
+# Hermes Agent Workflow Feature Addition With Api And Ui And Tests
+
+## Action
+
+Follow the feature-addition-with-api-and-ui-and-tests workflow:
+1. Implement backend logic in Python (e.g., web_server.py).
+2. Update or add frontend UI components/pages (e.g., .tsx, .ts files in web/src/pages or web/src/lib).
+3. Add or update tests for the new API/UI (e.g., test_dashboard_admin_endpoints.py).
+4. Commit all related files together.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: hermes_cli/web_server.py, web/src/lib/api.ts, web/src/pages/WebhooksPage.tsx
+
+---
+id: hermes-agent-workflow-windows-installer-fix-and-enhancement
+trigger: "when doing windows installer fix and enhancement"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/NGshiyu/hermes-agent
+---
+
+# Hermes Agent Workflow Windows Installer Fix And Enhancement
+
+## Action
+
+Follow the windows-installer-fix-and-enhancement workflow:
+1. Edit scripts/install.ps1 to fix bugs or add enhancements.
+2. Test changes locally or in CI for Windows environments.
+3. Commit the updated PowerShell script.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: scripts/install.ps1
+
+---
+id: hermes-agent-workflow-merge-bugfix-or-feature-pr
+trigger: "when doing merge bugfix or feature pr"
+confidence: 0.65
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/NGshiyu/hermes-agent
+---
+
+# Hermes Agent Workflow Merge Bugfix Or Feature Pr
+
+## Action
+
+Follow the merge-bugfix-or-feature-pr workflow:
+1. Review and approve the PR.
+2. Merge the PR, which includes code and test changes.
+3. Resolve any merge conflicts as needed.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~3x per month
+- Files: hermes_cli/backup.py, tests/hermes_cli/test_backup.py, apps/desktop/src/app/session/hooks/use-session-actions.ts
+
+---
+id: hermes-agent-instinct-file-naming
+trigger: "When creating or renaming a source file"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: NGshiyu/hermes-agent
+---
+
+# Hermes Agent Instinct File Naming
+
+## Action
+
+Use snake_case for file names
+
+## Evidence
+
+- Pattern in file naming conventions
+- Observed in hermes_cli/backup.py, hermes_state.py
+
+---
+id: hermes-agent-instinct-function-naming
+trigger: "When defining a new function"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: NGshiyu/hermes-agent
+---
+
+# Hermes Agent Instinct Function Naming
+
+## Action
+
+Use camelCase for function names
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.functions
+- Observed in codebase
+
+---
+id: hermes-agent-instinct-class-naming
+trigger: "When defining a new class"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: NGshiyu/hermes-agent
+---
+
+# Hermes Agent Instinct Class Naming
+
+## Action
+
+Use PascalCase for class names
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.classes
+- Observed in codebase
+
+---
+id: hermes-agent-instinct-constant-naming
+trigger: "When defining a constant"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: NGshiyu/hermes-agent
+---
+
+# Hermes Agent Instinct Constant Naming
+
+## Action
+
+Use SCREAMING_SNAKE_CASE for constant names
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.constants
+
+---
+id: hermes-agent-instinct-import-style
+trigger: "When importing modules"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: NGshiyu/hermes-agent
+---
+
+# Hermes Agent Instinct Import Style
+
+## Action
+
+Use alias import style
+
+## Evidence
+
+- Pattern in codeStyle.importStyle
+
+---
+id: hermes-agent-instinct-export-style
+trigger: "When exporting modules or functions"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: NGshiyu/hermes-agent
+---
+
+# Hermes Agent Instinct Export Style
+
+## Action
+
+Use named exports
+
+## Evidence
+
+- Pattern in codeStyle.exportStyle
+
+---
+id: hermes-agent-instinct-test-file-pattern
+trigger: "When creating a new test file"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: NGshiyu/hermes-agent
+---
+
+# Hermes Agent Instinct Test File Pattern
+
+## Action
+
+Name the file with the pattern *.test.ts
+
+## Evidence
+
+- Pattern in testing.filePattern
+- Observed in tests/hermes_cli/test_backup.py, tests/gateway/test_restart_drain.py
+
+---
+id: hermes-agent-instinct-test-framework
+trigger: "When writing tests for TypeScript code"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: NGshiyu/hermes-agent
+---
+
+# Hermes Agent Instinct Test Framework
+
+## Action
+
+Use the vitest framework
+
+## Evidence
+
+- Pattern in testing.framework
+- Observed in web/src/lib/api.ts tests
+
+---
+id: hermes-agent-instinct-test-mocking
+trigger: "When mocking modules in tests"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: NGshiyu/hermes-agent
+---
+
+# Hermes Agent Instinct Test Mocking
+
+## Action
+
+Use vi.mock for mocking
+
+## Evidence
+
+- Pattern in testing.mockingStyle
+
+---
+id: hermes-agent-instinct-unit-test-type
+trigger: "When writing tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: NGshiyu/hermes-agent
+---
+
+# Hermes Agent Instinct Unit Test Type
+
+## Action
+
+Write unit tests
+
+## Evidence
+
+- Pattern in testing.testTypes
+- Observed in tests/hermes_cli/test_backup.py
+
+---
+id: hermes-agent-instinct-commit-prefix
+trigger: "When writing a commit message"
+confidence: 0.9
+domain: git
+source: repo-analysis
+source_repo: NGshiyu/hermes-agent
+---
+
+# Hermes Agent Instinct Commit Prefix
+
+## Action
+
+Prefix the message with fix, feat, chore, or test as appropriate
+
+## Evidence
+
+- Pattern in commits.prefixes
+- Examples: 'fix: ...', 'feat: ...', 'chore: ...', 'test: ...'
+
+---
+id: hermes-agent-instinct-commit-length
+trigger: "When writing a commit message"
+confidence: 0.8
+domain: git
+source: repo-analysis
+source_repo: NGshiyu/hermes-agent
+---
+
+# Hermes Agent Instinct Commit Length
+
+## Action
+
+Keep the commit message concise (average ~68 characters)
+
+## Evidence
+
+- Pattern in commits.averageLength
+- Examples in commit history
+
+---
+id: hermes-agent-instinct-commit-multiscope
+trigger: "When a commit affects multiple modules or features"
+confidence: 0.85
+domain: git
+source: repo-analysis
+source_repo: NGshiyu/hermes-agent
+---
+
+# Hermes Agent Instinct Commit Multiscope
+
+## Action
+
+List affected scopes in parentheses after the prefix (e.g., fix(gateway,windows): ...)
+
+## Evidence
+
+- Seen in commit: 'fix(gateway,windows): preserve restart watcher env'
+
+---
+id: hermes-agent-instinct-bugfix-with-test
+trigger: "When fixing a bug in Python or TypeScript code"
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: NGshiyu/hermes-agent
+---
+
+# Hermes Agent Instinct Bugfix With Test
+
+## Action
+
+Add or update a regression/unit test to cover the fixed behavior and commit both code and test together
+
+## Evidence
+
+- Workflow: bugfix-with-regression-test
+- Example: fix in hermes_cli/backup.py + test in tests/hermes_cli/test_backup.py
+
+---
+id: hermes-agent-instinct-feature-api-ui-test
+trigger: "When adding a new user-facing feature requiring backend and frontend changes"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: NGshiyu/hermes-agent
+---
+
+# Hermes Agent Instinct Feature Api Ui Test
+
+## Action
+
+Implement backend logic, update/add frontend UI, add/update tests, and commit all related files together
+
+## Evidence
+
+- Workflow: feature-addition-with-api-and-ui-and-tests
+- Example: hermes_cli/web_server.py + web/src/lib/api.ts + tests/hermes_cli/test_dashboard_admin_endpoints.py
+
+---
+id: hermes-agent-instinct-windows-installer-fix
+trigger: "When fixing or enhancing the Windows installer"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: NGshiyu/hermes-agent
+---
+
+# Hermes Agent Instinct Windows Installer Fix
+
+## Action
+
+Edit scripts/install.ps1, test changes locally or in CI for Windows, and commit the updated script
+
+## Evidence
+
+- Workflow: windows-installer-fix-and-enhancement
+- Example: scripts/install.ps1
+
+---
+id: hermes-agent-instinct-merge-pr
+trigger: "When a PR with a bugfix or feature is ready to be merged"
+confidence: 0.8
+domain: workflow
+source: repo-analysis
+source_repo: NGshiyu/hermes-agent
+---
+
+# Hermes Agent Instinct Merge Pr
+
+## Action
+
+Review and approve the PR, merge it (including code and test changes), and resolve any merge conflicts as needed
+
+## Evidence
+
+- Workflow: merge-bugfix-or-feature-pr
+- Example: PRs affecting hermes_cli/backup.py and tests/hermes_cli/test_backup.py
+
