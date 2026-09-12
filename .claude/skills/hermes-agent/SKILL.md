@@ -1,0 +1,236 @@
+---
+name: hermes-agent-conventions
+description: Development conventions and patterns for hermes-agent. Python project with conventional commits.
+---
+
+# Hermes Agent Conventions
+
+> Generated from [NGshiyu/hermes-agent](https://github.com/NGshiyu/hermes-agent) on 2026-08-26
+
+## Overview
+
+This skill teaches Claude the development patterns and conventions used in hermes-agent.
+
+## Tech Stack
+
+- **Primary Language**: Python
+- **Architecture**: type-based module organization
+- **Test Location**: separate
+- **Test Framework**: jest
+
+## When to Use This Skill
+
+Activate this skill when:
+- Making changes to this repository
+- Adding new features following established patterns
+- Writing tests that match project conventions
+- Creating commits with proper message format
+
+## Commit Conventions
+
+Follow these commit message conventions based on 100 analyzed commits.
+
+### Commit Style: Conventional Commits
+
+### Prefixes Used
+
+- `fix`
+- `chore`
+- `test`
+- `refactor`
+- `feat`
+
+### Message Guidelines
+
+- Average message length: ~74 characters
+- Keep first line concise and descriptive
+- Use imperative mood ("Add feature" not "Added feature")
+
+
+*Commit message example*
+
+```text
+fix(computer-use): preserve macOS TCC daemon identity
+```
+
+*Commit message example*
+
+```text
+chore: map contributor email for projetsjsl
+```
+
+*Commit message example*
+
+```text
+test(desktop): prove fresh chat socket continuity
+```
+
+*Commit message example*
+
+```text
+refactor(desktop): one canonical write shape for connection_id row stamping
+```
+
+*Commit message example*
+
+```text
+style(desktop): sort registrySourceOwnsPrimaryBackend imports (lint)
+```
+
+*Commit message example*
+
+```text
+fix(computer-use): fail closed on unverified CuaDriver.app + background launch
+```
+
+*Commit message example*
+
+```text
+fix(state): renaming a bot's canonical Bot Chat is refused — the title IS the identity (#92473)
+```
+
+*Commit message example*
+
+```text
+fix(desktop): routed fresh chat keeps its exact owner after session.create
+```
+
+## Architecture
+
+### Project Structure: Monorepo
+
+This project uses **type-based** module organization.
+
+### Guidelines
+
+- Group code by type (components, services, utils)
+- Keep related functionality in the same type folder
+- Avoid circular dependencies between type folders
+
+## Code Style
+
+### Language: Python
+
+### Naming Conventions
+
+| Element | Convention |
+|---------|------------|
+| Files | camelCase |
+| Functions | camelCase |
+| Classes | PascalCase |
+| Constants | SCREAMING_SNAKE_CASE |
+
+### Import Style: Relative Imports
+
+### Export Style: Named Exports
+
+
+*Preferred import style*
+
+```typescript
+// Use relative imports
+import { Button } from '../components/Button'
+import { useAuth } from './hooks/useAuth'
+```
+
+*Preferred export style*
+
+```typescript
+// Use named exports
+export function calculateTotal() { ... }
+export const TAX_RATE = 0.1
+export interface Order { ... }
+```
+
+## Testing
+
+### Test Framework: jest
+
+### File Pattern: `*.test.ts`
+
+### Test Types
+
+- **Unit tests**: Test individual functions and components in isolation
+- **Integration tests**: Test interactions between multiple components/services
+- **E2e tests**: Test complete user flows through the application
+
+### Mocking: vi.mock
+
+
+*Test file structure*
+
+```typescript
+import { describe, it, expect } from 'jest'
+
+describe('MyFunction', () => {
+  it('should return expected result', () => {
+    const result = myFunction(input)
+    expect(result).toBe(expected)
+  })
+})
+```
+
+## Error Handling
+
+### Error Handling Style: Try-Catch Blocks
+
+
+*Standard error handling pattern*
+
+```typescript
+try {
+  const result = await riskyOperation()
+  return result
+} catch (error) {
+  console.error('Operation failed:', error)
+  throw new Error('User-friendly message')
+}
+```
+
+## Common Workflows
+
+These workflows were detected from analyzing commit patterns.
+
+### Refactoring
+
+Code refactoring and cleanup workflow
+
+**Frequency**: ~3 times per month
+
+**Steps**:
+1. Ensure tests pass before refactor
+2. Refactor code structure
+3. Verify tests still pass
+
+**Files typically involved**:
+- `src/**/*`
+
+**Example commit sequence**:
+```
+fix(desktop): profile-rail fresh chats keep their registry source as the exact owner
+fix(cli): preserve stale positive behind-count on fetch failure (#92578)
+fix(desktop): profile-rail fresh chats keep one exact session owner from create through every later RPC
+```
+
+
+## Best Practices
+
+Based on analysis of the codebase, follow these practices:
+
+### Do
+
+- Use conventional commit format (feat:, fix:, etc.)
+- Write tests using jest
+- Follow *.test.ts naming pattern
+- Use camelCase for file names
+- Prefer named exports
+
+### Don't
+
+- Don't write vague commit messages
+- Don't skip tests for new features
+- Don't deviate from established patterns without discussion
+
+---
+
+*This skill was auto-generated by [ECC Tools](https://ecc.tools). Review and customize as needed for your team.*
